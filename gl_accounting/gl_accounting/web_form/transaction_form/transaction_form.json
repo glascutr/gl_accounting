@@ -1,0 +1,186 @@
+{
+ "allow_comments": 0,
+ "allow_delete": 0,
+ "allow_edit": 0,
+ "allow_incomplete": 1,
+ "allow_multiple": 1,
+ "allow_print": 0,
+ "anonymous": 0,
+ "apply_document_permissions": 1,
+ "button_label": "Save",
+ "condition_json": "[]",
+ "creation": "2025-12-04 09:53:53.879856",
+ "doc_type": "Transaction",
+ "docstatus": 0,
+ "doctype": "Web Form",
+ "hide_footer": 1,
+ "hide_navbar": 0,
+ "idx": 0,
+ "is_standard": 1,
+ "list_columns": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "particulars",
+   "fieldtype": "Data",
+   "label": "Particulars"
+  },
+  {
+   "fieldname": "voucher_type",
+   "fieldtype": "Data",
+   "label": "Voucher Type"
+  },
+  {
+   "fieldname": "folio_no",
+   "fieldtype": "Data",
+   "label": "Folio No."
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "accounts_head",
+   "fieldtype": "Link",
+   "label": "Accounts Head"
+  }
+ ],
+ "list_title": "Transaction",
+ "login_required": 1,
+ "max_attachment_size": 0,
+ "modified": "2025-12-04 15:15:55.880209",
+ "modified_by": "Administrator",
+ "module": "GL Accounting",
+ "name": "transaction-form",
+ "owner": "Administrator",
+ "published": 1,
+ "route": "transactions-form",
+ "show_attachments": 0,
+ "show_list": 1,
+ "show_sidebar": 1,
+ "success_message": "Thank you. You submition has ben completed.",
+ "success_title": "Submition is completed",
+ "success_url": "/transactions",
+ "title": "Transactions",
+ "web_form_fields": [
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "hidden": 0,
+   "label": "Date",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 1,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "particulars",
+   "fieldtype": "Data",
+   "hidden": 0,
+   "label": "Particulars",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 1,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "cheque",
+   "fieldtype": "Data",
+   "hidden": 0,
+   "label": "Cheque",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "default": "CAV",
+   "fieldname": "voucher_type",
+   "fieldtype": "Select",
+   "hidden": 0,
+   "label": "Voucher Type",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "CAV\nCV\nDV\nCHQ",
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "folio_no",
+   "fieldtype": "Data",
+   "hidden": 0,
+   "label": "Folio No.",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "default": "",
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "hidden": 0,
+   "label": "Type",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "Cash Amount\nExpencess Amount\nBank Debit\nBank Credit",
+   "precision": "",
+   "read_only": 0,
+   "reqd": 1,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "hidden": 0,
+   "label": "Amount",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "accounts_head",
+   "fieldtype": "Link",
+   "hidden": 0,
+   "label": "Accounts Head",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "Accounts Head",
+   "precision": "",
+   "read_only": 0,
+   "reqd": 1,
+   "show_in_filter": 0
+  }
+ ],
+ "website_sidebar": "GL Accounting Sidebar"
+}
