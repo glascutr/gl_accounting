@@ -195,3 +195,52 @@ function printTable() {
 }
 
 ```
+
+
+# SQL with python script
+
+```
+
+total_cash_amount = frappe.db.sql("""
+    SELECT SUM(amount)
+    FROM `tabTransaction`
+    WHERE type='Cash Amount'
+""")[0][0]
+
+print("Total Cash =", total_cash_amount)
+
+# 
+# -------------------
+#
+
+total_cash_amount = frappe.db.sql("""
+    SELECT SUM(amount)
+    FROM `tabTransaction`
+    WHERE type='Cash Amount' or type='Bank Credit'
+""")[0][0]
+
+print("Total Cash =", total_cash_amount)
+
+
+```
+
+
+
+
+transactions = frappe.db.sql("""
+  SELECT 
+         tr.date,
+         tr.particulars,
+         tr.cheque,
+         tr.voucher_type,
+         tr.folio_no,
+         tr.type,
+         tr.amount,
+         ah.name1
+  FROM `tabTransaction` tr
+
+  INNER JOIN `tabAccounts Head` ah
+
+    ON tr.accounts_head = ah.name
+
+""")

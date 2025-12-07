@@ -27,15 +27,15 @@
   {
    "default": "Debit",
    "fieldname": "type",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
    "label": "Type",
-   "options": "Debit\nCredit\n"
+   "options": "Debit\nCredit"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-04 11:43:25.843926",
+ "modified": "2025-12-07 11:42:44.164351",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Accounts Head",
