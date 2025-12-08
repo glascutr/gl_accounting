@@ -8,7 +8,8 @@
  "field_order": [
   "name1",
   "code",
-  "type"
+  "type",
+  "is_trading_account"
  ],
  "fields": [
   {
@@ -29,13 +30,20 @@
    "fieldname": "type",
    "fieldtype": "Select",
    "label": "Type",
-   "options": "Debit\nCredit"
+   "options": "Debit\nCredit",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_trading_account",
+   "fieldtype": "Check",
+   "label": "Is Trading Account"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-07 13:22:14.928323",
+ "modified": "2025-12-08 11:04:22.374812",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Accounts Head",
