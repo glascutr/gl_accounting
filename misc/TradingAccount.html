@@ -29,7 +29,9 @@
 								<td>{{ ah.name1 }}</td>
 								<td class="text-right">{{ "{:,.2f}".format(ah.total_amount) }}</td>
 							</tr>
-							{% endfor %} {% if profit >= 0 %}
+							{% endfor %} 
+
+							{% if profit >= 0 %}
 
 							<tr>
 								<td colspan="2" class="text-center">Gross Profit</td>
@@ -73,7 +75,9 @@
 								<td>{{ ah.name1 }}</td>
 								<td class="text-right">{{ "{:,.2f}".format(ah.total_amount) }}</td>
 							</tr>
-							{% endfor %} {% if profit < 0 %}
+							{% endfor %} 
+							
+							{% if profit < 0 %}
 
 							<tr>
 								<td colspan="2" class="text-center">Gross Loss</td>

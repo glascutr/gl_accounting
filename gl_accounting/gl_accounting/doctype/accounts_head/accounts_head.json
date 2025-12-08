@@ -1,7 +1,6 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:####",
  "creation": "2025-12-03 16:09:19.386792",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -9,7 +8,8 @@
   "name1",
   "code",
   "type",
-  "is_trading_account"
+  "is_trading_account",
+  "is_profit_and_loss_account"
  ],
  "fields": [
   {
@@ -38,16 +38,21 @@
    "fieldname": "is_trading_account",
    "fieldtype": "Check",
    "label": "Is Trading Account"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_profit_and_loss_account",
+   "fieldtype": "Check",
+   "label": "Is Profit and Loss Account"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-08 11:04:22.374812",
+ "modified": "2025-12-08 16:56:57.009552",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Accounts Head",
- "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
