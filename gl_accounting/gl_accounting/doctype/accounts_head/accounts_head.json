@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:name1",
+ "autoname": "format:####",
  "creation": "2025-12-03 16:09:19.386792",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -35,11 +35,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-07 11:42:44.164351",
+ "modified": "2025-12-07 13:22:14.928323",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Accounts Head",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
