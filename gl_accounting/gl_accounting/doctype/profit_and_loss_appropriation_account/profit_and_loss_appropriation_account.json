@@ -6,19 +6,22 @@
  "engine": "InnoDB",
  "field_order": [
   "year",
+  "is_previous_year_profit",
+  "previous_year_profit_or_loss_amount",
+  "is_current_year_profit",
+  "current_year_profit_or_loss_amount",
   "is_profit",
-  "previous_year_profit_of_loss_amount",
-  "current_year_profit_of_loss_amount",
   "total_balance",
   "comment"
  ],
  "fields": [
   {
    "fieldname": "year",
-   "fieldtype": "Int",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Year",
    "non_negative": 1,
+   "options": "Fiscal Year",
    "reqd": 1,
    "unique": 1
   },
@@ -29,16 +32,6 @@
    "label": "Is Profit"
   },
   {
-   "fieldname": "previous_year_profit_of_loss_amount",
-   "fieldtype": "Currency",
-   "label": "Previous Year Profit of Loss Amount"
-  },
-  {
-   "fieldname": "current_year_profit_of_loss_amount",
-   "fieldtype": "Currency",
-   "label": "Current Year Profit of Loss Amount"
-  },
-  {
    "fieldname": "total_balance",
    "fieldtype": "Currency",
    "label": "Total Balance"
@@ -47,12 +40,34 @@
    "fieldname": "comment",
    "fieldtype": "Data",
    "label": "Comment"
+  },
+  {
+   "fieldname": "previous_year_profit_or_loss_amount",
+   "fieldtype": "Currency",
+   "label": "Previous Year Profit or Loss Amount"
+  },
+  {
+   "fieldname": "current_year_profit_or_loss_amount",
+   "fieldtype": "Currency",
+   "label": "Current Year Profit or Loss Amount"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_current_year_profit",
+   "fieldtype": "Check",
+   "label": "Is Current Year Profit"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_previous_year_profit",
+   "fieldtype": "Check",
+   "label": "Is Previous Year Profit"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-04 10:34:44.135913",
+ "modified": "2025-12-10 12:27:15.385444",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Profit and Loss Appropriation Account",

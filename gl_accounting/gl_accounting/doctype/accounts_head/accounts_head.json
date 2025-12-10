@@ -5,6 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "column_break_dsvs",
   "name1",
   "code",
   "type",
@@ -16,6 +17,7 @@
    "fieldname": "name1",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Name",
    "reqd": 1,
    "unique": 1
@@ -23,12 +25,16 @@
   {
    "fieldname": "code",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Code"
   },
   {
    "default": "Debit",
    "fieldname": "type",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Type",
    "options": "Debit\nCredit",
    "reqd": 1
@@ -37,19 +43,27 @@
    "default": "0",
    "fieldname": "is_trading_account",
    "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Is Trading Account"
   },
   {
    "default": "0",
    "fieldname": "is_profit_and_loss_account",
    "fieldtype": "Check",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Is Profit and Loss Account"
+  },
+  {
+   "fieldname": "column_break_dsvs",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-08 16:56:57.009552",
+ "modified": "2025-12-10 11:19:40.226636",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Accounts Head",
@@ -71,8 +85,8 @@
  ],
  "row_format": "Dynamic",
  "show_title_field_in_link": 1,
- "sort_field": "creation",
- "sort_order": "DESC",
+ "sort_field": "name1",
+ "sort_order": "ASC",
  "states": [],
  "title_field": "name1"
 }

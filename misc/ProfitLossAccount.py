@@ -14,8 +14,8 @@ profit_loss_acounts = frappe.db.sql("""
 """, as_dict=True)
         
         
-profit_loss_total_credit = 0
 profit_loss_total_debit = 0
+profit_loss_total_credit = 0
 
 profit_loss_debit_accounts = []
 profit_loss_credit_accounts = []
@@ -73,29 +73,34 @@ profit = total_credit - total_debit
 gross_loss = 0 if profit >= 0 else abs(profit)
 gross_profit = 0 if profit < 0 else profit
 
-gross_total_credit = profit_loss_total_credit + gross_profit
-gross_total_debit = profit_loss_total_debit + gross_loss
+context.gross_loss = gross_loss
+context.gross_profit = gross_profit
 
+
+
+gross_total_debit  = profit_loss_total_debit + gross_loss
+gross_total_credit = profit_loss_total_credit + gross_profit
 
 net_profit_loss = gross_total_credit - gross_total_debit
 
 net_loss = net_profit_loss if net_profit_loss < 0 else 0
 net_profit = net_profit_loss if net_profit_loss >= 0 else 0
 
-net_total_credit = gross_total_credit + net_profit
-net_total_debit = gross_total_debit + net_loss
-
-
-
-
-context.is_profit = bool(profit < 0)
-
-context.gross_loss = gross_loss
-context.gross_profit = gross_profit
-
-context.is_net_profit_loss = bool(net_profit_loss < 0)
 context.net_loss = net_loss
 context.net_profit = net_profit
 
-context.net_total_credit = net_total_credit
+
+
+net_total_debit = profit_loss_total_debit + gross_loss + net_profit
+net_total_credit = profit_loss_total_credit + gross_profit + net_loss
+
+
+
+
+context.is_loss = bool(profit < 0)
+
+context.is_net_loss = bool(net_profit_loss < 0)
+
+
 context.net_total_debit = net_total_debit
+context.net_total_credit = net_total_credit

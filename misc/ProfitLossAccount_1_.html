@@ -31,17 +31,19 @@
 								<td>{{ ah.name1 }}</td>
 								<td class="text-right">{{ "{:,.2f}".format(ah.total_amount) }}</td>
 							</tr>
-							{% endfor %} {% if gross_loss > 0 %}
+							{% endfor %}
+
 							<tr>
 								<td colspan="2" class="text-center">Gross Loss</td>
 								<td class="text-right">{{gross_loss}}</td>
 							</tr>
-							{% endif %} {% if net_profit > 0 %}
+
+							<!-- {% if is_net_loss == false %} -->
 							<tr>
 								<td colspan="2" class="text-center">Net Profit</td>
 								<td class="text-right">{{net_profit}}</td>
 							</tr>
-							{% endif %}
+							<!-- {% endif %} -->
 
 							<tr class="fw-bold table-warning">
 								<td colspan="2" class="text-center">Total</td>
@@ -71,27 +73,23 @@
 						</thead>
 
 						<tbody>
-
-							{% if gross_profit> 0 %}
-							<tr>
-								<td class="text-center">1</td>
-								<td>Gross Profit</td>
-								<td class="text-right">{{gross_profit}}</td>
-							</tr>
-
-							{% endif %}
-
 							{% for ah in profit_loss_credit_accounts %}
-								<td class="text-center">{{ loop.index+1 }}</td>
+							<tr>
+								<td class="text-center">{{ loop.index }}</td>
 								<td>{{ ah.name1 }}</td>
 								<td class="text-right">{{ "{:,.2f}".format(ah.total_amount) }}</td>
 							</tr>
-							{% endfor %}  {% if net_loss > 0 %}
+							{% endfor %}
+
+							<tr>
+								<td colspan="2" class="text-center">Gross Profit</td>
+								<td class="text-right">{{gross_profit}}</td>
+							</tr>
+
 							<tr>
 								<td colspan="2" class="text-center">Net Loss</td>
 								<td class="text-right">{{net_loss}}</td>
 							</tr>
-							{% endif %}
 
 							<tr class="fw-bold table-info">
 								<td colspan="2" class="text-center">Total</td>
