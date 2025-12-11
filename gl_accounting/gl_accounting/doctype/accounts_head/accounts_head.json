@@ -10,7 +10,8 @@
   "code",
   "type",
   "is_trading_account",
-  "is_profit_and_loss_account"
+  "is_profit_and_loss_account",
+  "final_account_type"
  ],
  "fields": [
   {
@@ -58,12 +59,18 @@
   {
    "fieldname": "column_break_dsvs",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "final_account_type",
+   "fieldtype": "Select",
+   "label": "Final Account Type",
+   "options": "None\nLiabilities\nAssets\nEquity"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-10 11:19:40.226636",
+ "modified": "2025-12-11 11:26:06.018618",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Accounts Head",
