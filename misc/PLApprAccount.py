@@ -23,5 +23,31 @@ if current_fiscal_year:
         {"year": current_fiscal_year}  # filter by unique field
     )
 
+total_profit_balanced = 0
+total_loss_balanced = 0
+
+if profit_loss_appropriation_account.is_previous_year_profit:
+    total_profit_balanced = total_profit_balanced + profit_loss_appropriation_account.previous_year_profit_or_loss_amount
+else:
+    total_loss_balanced = total_loss_balanced + profit_loss_appropriation_account.previous_year_profit_or_loss_amount
+    
+if profit_loss_appropriation_account.is_current_year_profit:
+    total_profit_balanced = total_profit_balanced + profit_loss_appropriation_account.current_year_profit_or_loss_amount
+else:
+    total_loss_balanced = total_loss_balanced + profit_loss_appropriation_account.current_year_profit_or_loss_amount
+    
+    
+if not profit_loss_appropriation_account.is_profit:
+    total_profit_balanced = total_profit_balanced + profit_loss_appropriation_account.total_balance
+else:
+    total_loss_balanced = total_loss_balanced + profit_loss_appropriation_account.total_balance
+    
+
+    
+
 # Set to context so template can use it
 context.profit_loss_appropriation_account = profit_loss_appropriation_account
+
+context.total_profit_balanced = total_profit_balanced
+context.total_loss_balanced = total_loss_balanced
+

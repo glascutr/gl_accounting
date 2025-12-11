@@ -26,7 +26,7 @@
    "unique": 1
   },
   {
-   "default": "true",
+   "default": "0",
    "fieldname": "is_profit",
    "fieldtype": "Check",
    "label": "Is Profit"
@@ -67,7 +67,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-10 12:27:15.385444",
+ "modified": "2025-12-11 09:28:25.305293",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Profit and Loss Appropriation Account",

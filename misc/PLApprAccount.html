@@ -3,20 +3,29 @@
 	<h3 class="d-inline-block border-bottom border-3 pb-1 fw-bold text-dark">
 		Profit & Loss Appropriation Account
 	</h3>
-	<h5 class="d-inline-block border-bottom border-3 pb-1 fw-bold text-dark">
-		{{current_fiscal_year}}
-		<!-- {{profit_loss_appropriation_account}} -->
-
-		<button class="btn btn-primary">
-			<a
-				href="/app/profit-and-loss-appropriation-account/{{ profit_loss_appropriation_account.name }}"
-				class="text-white text-decoration-none"
-			>
-				🖍
-			</a>
-		</button>
-	</h5>
+	
 </div>
+
+<div class="text-center my-4">
+    <h5 class="d-inline-block border-bottom border-3 pb-1 fw-bold text-dark">
+        {{ current_fiscal_year }}
+
+        <button  class="btn btn-outline-secondary">
+            <a
+                href="/app/profit-and-loss-appropriation-account/{{ profit_loss_appropriation_account.name }}"
+              
+            >
+
+			🖋
+                <!-- {{ current_fiscal_year }} -->
+            </a>
+        </button>
+    </h5>
+</div>
+
+
+
+
 
 <div class="container mb-4">
 	<div class="row g-4">
@@ -38,14 +47,21 @@
 						</thead>
 
 						<tbody>
+								{% set sl = 0 %}
+							{% if profit_loss_appropriation_account.is_previous_year_profit %}
+
 							<tr>
-								{% set sl = 1 %}
+								{% set sl = sl + 1 %}
 								<td>{{sl}}</td>
 								<td>Previous Year Profit</td>
 								<td class="text-right">
 									{{profit_loss_appropriation_account.previous_year_profit_or_loss_amount}}
 								</td>
 							</tr>
+							{% endif %}
+
+							{% if profit_loss_appropriation_account.is_current_year_profit %}
+
 							<tr>
 								{% set sl = sl + 1 %}
 								<td>{{sl}}</td>
@@ -54,6 +70,9 @@
 									{{profit_loss_appropriation_account.current_year_profit_or_loss_amount}}
 								</td>
 							</tr>
+							{%  endif %}
+
+							{% if not profit_loss_appropriation_account.is_profit %}
 							<tr>
 								{% set sl = sl + 1 %}
 								<td>{{sl}}</td>
@@ -62,9 +81,10 @@
 									{{profit_loss_appropriation_account.total_balance}}
 								</td>
 							</tr>
+							{% endif %}
 							<tr class="fw bold table-warning">
 								<td colspan="2" class="text-center">Total</td>
-								<td class="text-right">{{amount}}</td>
+								<td class="text-right">{{total_profit_balanced}}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -90,14 +110,21 @@
 						</thead>
 
 						<tbody>
+							{% set sl = 0 %}
+
+							{% if not profit_loss_appropriation_account.is_previous_year_profit %}
 							<tr>
-								{% set sl = 1 %}
+								{% set sl = sl + 1 %}
 								<td>{{sl}}</td>
 								<td>Previous Year Loss</td>
 								<td class="text-right">
 									{{profit_loss_appropriation_account.previous_year_profit_or_loss_amount}}
 								</td>
 							</tr>
+
+							{% endif %}
+
+							{% if not profit_loss_appropriation_account.is_current_year_profit %}
 							<tr>
 								{% set sl = sl + 1 %}
 								<td>{{sl}}</td>
@@ -106,6 +133,10 @@
 									{{profit_loss_appropriation_account.current_year_profit_or_loss_amount}}
 								</td>
 							</tr>
+							{% endif %}
+
+
+							{% if profit_loss_appropriation_account.is_profit %}
 							<tr>
 								{% set sl = sl + 1 %}
 								<td>{{sl}}</td>
@@ -114,9 +145,11 @@
 									{{profit_loss_appropriation_account.total_balance}}
 								</td>
 							</tr>
+							{% endif %}
+
 							<tr class="fw bold table-info">
 								<td colspan="2" class="text-center">Total</td>
-								<td class="text-right">{{amount}}</td>
+								<td class="text-right">{{total_loss_balanced}}</td>
 							</tr>
 						</tbody>
 					</table>
