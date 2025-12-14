@@ -9,8 +9,21 @@ function printTable() {
 	location.reload();
 }
 
+
+function formatDateDDMMYYYY(dateStr) {
+	let [year, month, day] = dateStr.split("-");
+	return `${day}-${month}-${year}`;
+}
+function formatDateYYYYMMDD(dateStr) {
+	let [day, month, year] = dateStr.split("-");
+	return `${year}-${month}-${day}`;
+}
+
+
 function submit_form(event) {
 	event.preventDefault();
+
+
 
 	const from_date = document.getElementById("from_date").value;
 	const to_date = document.getElementById("to_date").value;
@@ -26,8 +39,8 @@ function submit_form(event) {
 				document.getElementById("report-results").innerHTML = `
 					<h5 class="text-center mb-3">Accounts Heads Wise Debit</h5>
 					<div class="alert alert-info text-center">
-						<strong>From Date:</strong> ${from_date} &nbsp;&nbsp;
-						<strong>To Date:</strong> ${to_date}
+						<strong>From Date:</strong> ${formatDateDDMMYYYY(from_date)} &nbsp;&nbsp;
+						<strong>To Date:</strong> ${ formatDateDDMMYYYY(to_date)}
 					</div>
 				`;
 
