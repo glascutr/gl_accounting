@@ -41,7 +41,7 @@
  ],
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2025-12-17 12:47:10.421093",
+ "modified": "2025-12-17 13:01:00.854420",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "new-fiscal-year",
@@ -51,6 +51,9 @@
  "show_attachments": 0,
  "show_list": 1,
  "show_sidebar": 1,
+ "success_message": "Thank you. Your request has been successfully completed.",
+ "success_title": "New Fiscal Year Add Successfully",
+ "success_url": "/new-fiscal-year/list",
  "title": "New Fiscal Year",
  "web_form_fields": [
   {
