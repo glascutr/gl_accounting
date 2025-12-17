@@ -1,0 +1,139 @@
+{
+ "allow_comments": 0,
+ "allow_delete": 1,
+ "allow_edit": 1,
+ "allow_incomplete": 1,
+ "allow_multiple": 1,
+ "allow_print": 0,
+ "anonymous": 0,
+ "apply_document_permissions": 1,
+ "button_label": "Save",
+ "condition_json": "[]",
+ "creation": "2025-12-17 12:36:17.976219",
+ "doc_type": "Fiscal Year",
+ "docstatus": 0,
+ "doctype": "Web Form",
+ "hide_footer": 0,
+ "hide_navbar": 0,
+ "idx": 0,
+ "is_standard": 1,
+ "list_columns": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "label": "Year Name"
+  },
+  {
+   "fieldname": "year_start_date",
+   "fieldtype": "Date",
+   "label": "Year Start Date"
+  },
+  {
+   "fieldname": "year_end_date",
+   "fieldtype": "Date",
+   "label": "Year End Date"
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  }
+ ],
+ "login_required": 1,
+ "max_attachment_size": 0,
+ "modified": "2025-12-17 12:47:10.421093",
+ "modified_by": "Administrator",
+ "module": "GL Accounting",
+ "name": "new-fiscal-year",
+ "owner": "Administrator",
+ "published": 1,
+ "route": "new-fiscal-year",
+ "show_attachments": 0,
+ "show_list": 1,
+ "show_sidebar": 1,
+ "title": "New Fiscal Year",
+ "web_form_fields": [
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "hidden": 0,
+   "label": "Year Name",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 1,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "hidden": 0,
+   "label": "Disabled",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "default": "0",
+   "fieldname": "is_short_year",
+   "fieldtype": "Check",
+   "hidden": 0,
+   "label": "Is Short/Long Year",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "year_start_date",
+   "fieldtype": "Date",
+   "hidden": 0,
+   "label": "Year Start Date",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 1,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "year_end_date",
+   "fieldtype": "Date",
+   "hidden": 0,
+   "label": "Year End Date",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 1,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "companies",
+   "fieldtype": "Table",
+   "hidden": 0,
+   "label": "Companies",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "Fiscal Year Company",
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  }
+ ],
+ "website_sidebar": "GL Accounting Sidebar"
+}
