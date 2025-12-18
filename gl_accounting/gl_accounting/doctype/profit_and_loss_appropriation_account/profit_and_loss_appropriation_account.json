@@ -67,8 +67,8 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-11 09:28:25.305293",
- "modified_by": "Administrator",
+ "modified": "2025-12-15 15:03:13.569060",
+ "modified_by": "nazmul.cse48@gmail.com",
  "module": "GL Accounting",
  "name": "Profit and Loss Appropriation Account",
  "owner": "Administrator",
@@ -82,6 +82,20 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "select": 1,
    "share": 1,
    "write": 1
   }

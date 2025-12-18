@@ -71,7 +71,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-04 15:15:11.728627",
+ "modified": "2025-12-17 11:11:53.572671",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Transaction",
@@ -86,13 +86,27 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "select": 1,
    "share": 1,
    "write": 1
   }
  ],
  "row_format": "Dynamic",
  "show_title_field_in_link": 1,
- "sort_field": "creation",
+ "sort_field": "date",
  "sort_order": "DESC",
  "states": [],
  "title_field": "particulars"

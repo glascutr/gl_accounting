@@ -9,11 +9,11 @@
  "apply_document_permissions": 1,
  "button_label": "Save",
  "condition_json": "[]",
- "creation": "2025-12-04 09:53:53.879856",
+ "creation": "2025-12-15 15:56:54.565005",
  "doc_type": "Transaction",
  "docstatus": 0,
  "doctype": "Web Form",
- "hide_footer": 1,
+ "hide_footer": 0,
  "hide_navbar": 0,
  "idx": 0,
  "is_standard": 1,
@@ -24,24 +24,9 @@
    "label": "Date"
   },
   {
-   "fieldname": "particulars",
-   "fieldtype": "Data",
-   "label": "Particulars"
-  },
-  {
-   "fieldname": "voucher_type",
-   "fieldtype": "Data",
-   "label": "Voucher Type"
-  },
-  {
-   "fieldname": "folio_no",
-   "fieldtype": "Data",
-   "label": "Folio No."
-  },
-  {
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "label": "Type"
+   "fieldname": "accounts_head",
+   "fieldtype": "Link",
+   "label": "Accounts Head"
   },
   {
    "fieldname": "amount",
@@ -49,28 +34,24 @@
    "label": "Amount"
   },
   {
-   "fieldname": "accounts_head",
-   "fieldtype": "Link",
-   "label": "Accounts Head"
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type"
   }
  ],
- "list_title": "Transaction",
  "login_required": 0,
  "max_attachment_size": 0,
- "modified": "2025-12-15 16:37:40.631969",
+ "modified": "2025-12-15 15:59:06.626927",
  "modified_by": "nazmul.cse48@gmail.com",
  "module": "GL Accounting",
- "name": "transaction-form",
- "owner": "Administrator",
+ "name": "my-transaction",
+ "owner": "nazmul.cse48@gmail.com",
  "published": 1,
- "route": "transactions-form",
+ "route": "my-transaction",
  "show_attachments": 0,
  "show_list": 0,
- "show_sidebar": 1,
- "success_message": "Thank you. You submition has ben completed.",
- "success_title": "Submition is completed",
- "success_url": "/transactions",
- "title": "Transactions",
+ "show_sidebar": 0,
+ "title": "My Transaction",
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,
@@ -141,7 +122,6 @@
   },
   {
    "allow_read_on_all_link_options": 0,
-   "default": "",
    "fieldname": "type",
    "fieldtype": "Select",
    "hidden": 0,
@@ -181,6 +161,5 @@
    "reqd": 1,
    "show_in_filter": 0
   }
- ],
- "website_sidebar": "GL Accounting Sidebar"
+ ]
 }
