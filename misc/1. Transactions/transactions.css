@@ -1,0 +1,26 @@
+
+.no-print {
+  display: inherit;
+}
+
+@media print {
+
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 11px;
+  }
+
+  table td {
+    vertical-align: top;
+  }
+
+  .table-info,
+  .table-warning {
+    background-color: #e9f3ff !important;
+  }
+
+}
+
