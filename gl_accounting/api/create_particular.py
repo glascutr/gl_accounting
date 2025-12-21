@@ -1,21 +1,27 @@
 import frappe
 
 @frappe.whitelist()
-def add_particulars(particulars):
+def add_particulars(title):
+    if not title:
+        frappe.throw("Title is required")
 
-    if not particulars:
-        frappe.throw("Particulars is required")
+    # Avoid duplicate entry based on title
+    doc = frappe.get_all(
+        "Particulars",
+        filters={"title": title},
+        limit=1
+    )
 
-    # Avoid duplicate entry
-    if frappe.db.exists("Particulars", {"title": particulars}):
-        return
+    if doc:
+        particular_name = doc[0].name
+    else:
+        # create new Particular
+        new_doc = frappe.get_doc({
+            "doctype": "Particulars",
+            "title": title
+        })
+        new_doc.insert(ignore_permissions=True)
+        frappe.db.commit()
+        particular_name = new_doc.name
 
-    doc = frappe.get_doc({
-        "doctype": "Particulars",
-        "title": particulars
-    })
-
-    doc.insert(ignore_permissions=True)
-    frappe.db.commit()
-
-    return doc.name
+    return particular_name  # return DocType name
