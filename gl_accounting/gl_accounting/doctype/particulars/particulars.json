@@ -25,7 +25,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-21 09:29:45.424944",
+ "modified": "2025-12-21 11:08:44.672024",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Particulars",
@@ -45,8 +45,9 @@
   }
  ],
  "row_format": "Dynamic",
- "sort_field": "creation",
- "sort_order": "DESC",
+ "show_title_field_in_link": 1,
+ "sort_field": "title",
+ "sort_order": "ASC",
  "states": [],
  "title_field": "title"
 }

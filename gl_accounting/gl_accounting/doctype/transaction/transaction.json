@@ -23,6 +23,7 @@
    "reqd": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "particulars",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -72,7 +73,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-21 09:29:14.157402",
+ "modified": "2025-12-21 10:28:13.747567",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Transaction",
