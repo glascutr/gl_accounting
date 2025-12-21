@@ -50,7 +50,7 @@ accounts_head_list = [
   {
     "name1": "Loan Received",
     "code": "",
-    "type": "Debit",
+    "type": "Credit",
     "is_trading_account": 0,
     "is_profit_and_loss_account": 0,
     "final_account_type": "Liabilities"
