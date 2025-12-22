@@ -25,11 +25,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
-<<<<<<< HEAD
- "modified": "2025-12-21 11:08:44.672024",
-=======
  "modified": "2025-12-21 12:16:16.669415",
->>>>>>> refs/remotes/upstream/main
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Particulars",
