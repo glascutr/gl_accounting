@@ -8,7 +8,7 @@
  "anonymous": 0,
  "apply_document_permissions": 1,
  "button_label": "Save",
- "condition_json": "[[\"Accounts Head\",\"is_trading_account\",\"=\",0,false],[\"Accounts Head\",\"is_profit_and_loss_account\",\"=\",0,false]]",
+ "condition_json": "[]",
  "creation": "2025-12-10 11:05:56.863766",
  "doc_type": "Accounts Head",
  "docstatus": 0,
@@ -17,23 +17,12 @@
  "hide_navbar": 0,
  "idx": 0,
  "is_standard": 1,
- "list_columns": [
-  {
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name"
-  },
-  {
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "label": "Type"
-  }
- ],
- "list_title": "Accounts Head",
+ "list_columns": [],
+ "list_title": "",
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2025-12-15 15:29:43.980600",
- "modified_by": "nazmul.cse48@gmail.com",
+ "modified": "2026-01-13 11:17:14.260239",
+ "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "accounts-head",
  "owner": "Administrator",
@@ -42,6 +31,8 @@
  "show_attachments": 0,
  "show_list": 1,
  "show_sidebar": 1,
+ "success_title": "Accounts Head Added Successfully.",
+ "success_url": "/accounts-head/list",
  "title": "Accounts Head",
  "web_form_fields": [
   {
@@ -121,6 +112,20 @@
    "label": "Is Profit and Loss Account",
    "max_length": 0,
    "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "final_account_type",
+   "fieldtype": "Select",
+   "hidden": 0,
+   "label": "Final Account Type",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "None\nLiabilities\nAssets\nEquity",
    "precision": "",
    "read_only": 0,
    "reqd": 0,
