@@ -70,11 +70,12 @@ if month and year:
         INNER JOIN `tabAccounts Head` ah
             ON tr.accounts_head = ah.name
     
-        WHERE tr.date <= %s AND tr.date < %s AND
+        WHERE tr.date >= %s AND tr.date < %s AND
 
         ah.type IN ('Debit', 'Credit') 
         GROUP BY ah.type, ah.name, ah.name1
     """,(from_date, to_date), as_dict=True)
+    
 
     accounts_heads_debit_summation = []
     accounts_heads_credit_summation = []
@@ -84,6 +85,7 @@ if month and year:
     total_contra = 0
 
     for row in rows:
+        
         
         if row["name1"] =="Contra Account":
             total_contra = total_contra + row["total_amount"]
@@ -136,9 +138,9 @@ if month and year:
     cash_in_hand = cash-expense
     cash_at_bank = bank_credit - (total_contra+ bank_debit)
 
-    context.total_debit = total_debit + cash_in_hand + cash_at_bank
     context.cash_in_hand = cash_in_hand
     context.cash_at_bank = cash_at_bank
+    context.total_debit = total_debit + cash_in_hand + cash_at_bank
 
 
 
