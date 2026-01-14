@@ -10,7 +10,6 @@ context.selected_month = month
 context.selected_year = year
 
 
-
 if month and year:
 
     months = {
@@ -32,7 +31,23 @@ if month and year:
     to_date = f"{year}-{months[month]['to_date']}"
     if month=="December":
         to_date = f"{year+1}-{months[month]['to_date']}"
-    
+
+
+
+    fy_name = frappe.db.get_value(
+        "Fiscal Year",
+        {
+            "year_start_date": ["<=", from_date],
+            "year_end_date": [">=", from_date],
+        },
+        "name"
+    )
+
+    if not fy_name:
+        frappe.throw(f"No Fiscal Year found for date {from_date}")
+
+    fy_doc = frappe.get_doc("Fiscal Year", fy_name)
+    context.fy_doc = fy_doc
 
     context.from_date = from_date
     context.to_date = to_date
