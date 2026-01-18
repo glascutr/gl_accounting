@@ -56,8 +56,8 @@ if month and year:
     """,(from_date, to_date), as_dict=True)
     
 
-    accounts_heads_debit_summation = []
-    accounts_heads_credit_summation = []
+    accounts_heads_debit_summation_list = []
+    accounts_heads_credit_summation_list = []
 
     total_debit = 0
     total_credit = 0
@@ -70,20 +70,18 @@ if month and year:
             total_contra = total_contra + row["total_amount"]
         
         elif row["type"] == "Debit":
-            accounts_heads_debit_summation.append(row)
+            accounts_heads_debit_summation_list.append(row)
             total_debit = total_debit + row["total_amount"]
 
         elif row["type"] == "Credit":
-            accounts_heads_credit_summation.append(row)
+            accounts_heads_credit_summation_list.append(row)
             total_credit = total_credit + row["total_amount"]
 
     # ✅ FINAL context assignment (SAFE)
-    context.accounts_heads_debit_summation = accounts_heads_debit_summation
-    context.accounts_heads_credit_summation = accounts_heads_credit_summation
+    context.accounts_heads_debit_summation_list = accounts_heads_debit_summation_list
+    context.accounts_heads_credit_summation_list = accounts_heads_credit_summation_list
 
-    # context.total_debit = total_debit
-    context.total_credit = total_credit
-
+    
 
 
     transaction_type_group_sum = frappe.db.sql("""
@@ -120,6 +118,11 @@ if month and year:
     context.cash_in_hand = cash_in_hand
     context.cash_at_bank = cash_at_bank
     context.total_debit = total_debit + cash_in_hand + cash_at_bank
+    
+    # context.total_debit = total_debit
+    context.total_credit = total_credit
+
+
 
 
 

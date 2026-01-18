@@ -47,28 +47,17 @@
 					</select>
 				</div>
 
-				<!-- Year -->
 				<div class="form-group col-md-6">
-					<label for="year">Year</label>
+					<label for="year">year</label>
 					<input
 						type="number"
 						class="form-control"
 						id="year"
 						name="year"
 						placeholder="e.g. 2026"
+						value="2024"
 					/>
 				</div>
-				<!-- <div class="form-group col-md-6">
-					<label for="year">Year</label>
-					<input
-						type="number"
-						class="form-control"
-						id="year"
-						name="year"
-						placeholder="e.g. 2026"
-						value="2026"
-					/>
-				</div> -->
 			</div>
 
 			<button type="submit" class="btn btn-primary">Submit</button>
@@ -76,10 +65,8 @@
 	</div>
 
 	{% if from_date and to_date %}
-
 	<div class="container mb-4">
 		<div class="row g-4">
-			<!-- Debit -->
 			<div class="col-md-6">
 				<div class="card shadow border-0 h-100">
 					<div class="card-header bg-warning bg-gradient text-white">
@@ -99,7 +86,7 @@
 							</thead>
 
 							<tbody>
-								{% for ah in accounts_heads_debit_summation %}
+								{% for ah in this_month_accounts_head_wise_debit_list %}
 								<tr>
 									<td class="text-center">{{ loop.index }}</td>
 									<td>{{ ah.name1 }}</td>
@@ -107,29 +94,28 @@
 										{{ "{:,.2f}".format(ah.total_amount) }}
 									</td>
 								</tr>
-								{% endfor %} {% set sl = accounts_heads_debit_summation | length +
-								1 %}
+								{% endfor %} {% set sl = this_month_accounts_head_wise_debit_list |
+								length + 1 %}
 								<tr>
 									<td class="text-center">{{ sl }}</td>
-
 									<td>
-										Cash in Hand ({% if to_date %} {{ to_date }} {% endif %})
+										Cash in Hand ({% if fy_doc.year_end_date %} {{
+										fy_doc.year_end_date.strftime("%d-%m-%Y") }} {% endif %})
 									</td>
-
 									<td class="text-end" style="text-align: right !important">
-										{{ "{:,.2f}".format(cash_in_hand) }}
+										{{ "{:,.2f}".format(month_last_day_CashInHand_debits) }}
 									</td>
 								</tr>
 
 								{% set sl = sl + 1 %}
 								<tr>
 									<td class="text-center">{{ sl }}</td>
-
 									<td>
-										Cash at Bank ({% if to_date %} {{ to_date }} {% endif %})
+										Cash at Bank ({% if fy_doc.year_end_date %} {{
+										fy_doc.year_end_date.strftime("%d-%m-%Y") }} {% endif %})
 									</td>
 									<td class="text-end" style="text-align: right !important">
-										{{ "{:,.2f}".format(cash_at_bank) }}
+										{{ "{:,.2f}".format(month_last_day_CashAtBank_debits) }}
 									</td>
 								</tr>
 
@@ -169,15 +155,15 @@
 							</thead>
 
 							<tbody>
-								{% for ah in accounts_heads_credit_summation %}
+								{% for ah in this_month_accounts_head_wise_credit_list %}
 								<tr>
 									<td class="text-center">{{ loop.index }}</td>
 									{% if ah.name1 == "Cash at Bank" or ah.name1 == "Cash in Hand"
 									%}
 
 									<td>
-										{{ ah.name1 }} ({% if from_date %} {{ from_date }} {% endif
-										%})
+										{{ ah.name1 }} ({% if fy_doc.year_start_date %} {{
+										fy_doc.year_start_date.strftime("%d-%m-%Y") }} {% endif %})
 									</td>
 									{% else %}
 									<td>{{ ah.name1 }}</td>
@@ -188,6 +174,46 @@
 									</td>
 								</tr>
 								{% endfor %}
+
+
+
+								{% set sl = this_month_accounts_head_wise_credit_list |
+								length %}
+
+								{% if previous_month_porjonto_CashInHand_credit > 0 %}
+
+								<tr>
+									<td class="text-center">{{ sl+1 }}</td>
+									<td>
+										Cash in Hand ({% if fy_doc.year_end_date %} {{
+										fy_doc.year_end_date.strftime("%d-%m-%Y") }} {% endif %})
+									</td>
+									<td class="text-end" style="text-align: right !important">
+										{{ "{:,.2f}".format(previous_month_porjonto_CashInHand_credit) }}
+									</td>
+								</tr>
+
+									
+								{% endif %}
+
+
+								
+								{% set sl = sl + 2 %}
+								{% if previous_month_porjonto_CashAtBank_credit > 0 %}
+								<tr>
+									<td class="text-center">{{ sl }}</td>
+									<td>
+										Cash at Bank ({% if fy_doc.year_end_date %} {{
+										fy_doc.year_end_date.strftime("%d-%m-%Y") }} {% endif %})
+									</td>
+									<td class="text-end" style="text-align: right !important">
+										{{ "{:,.2f}".format(previous_month_porjonto_CashAtBank_credit) }}
+									</td>
+								</tr>
+									
+								{% endif %}
+								
+
 
 								<!-- Total -->
 								<tr class="fw-bold table-info">
@@ -204,8 +230,10 @@
 					</div>
 				</div>
 			</div>
+
+
+
 		</div>
 	</div>
-
 	{% endif %}
 </div>
