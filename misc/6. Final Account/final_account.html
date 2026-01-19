@@ -79,7 +79,10 @@
 								<tr>
 									<td class="text-center">{{ loop.index }}</td>
 									<td>{{liability.name1}}</td>
-									<td class="text-right">{{liability.total_amount}}</td>
+									<td class="text-right">
+										<!-- {{liability.total_amount}} -->
+										{{ "%.2f"|format(liability.total_amount or 0) }}
+									</td>
 								</tr>
 
 								{% endfor %}
@@ -93,14 +96,34 @@
 									<td class="text-center">{{ sl }}</td>
 									<td>Balance Profit</td>
 									<td class="text-right">
-										{{ profit_loss_appropriation_account.total_balance }}
+										<!-- {{ profit_loss_appropriation_account.total_balance }} -->
+
+										{{
+										"%.2f"|format(profit_loss_appropriation_account.total_balance
+										or 0) }}
 									</td>
 								</tr>
-								{% endif %}
+								{% endif %} {% if entry_liabilies %} {% for el in entry_liabilies
+								%}
+
+								<tr>
+									{% set sl = sl + 1 %}
+									<td class="text-center">{{ sl }}</td>
+									<td>{{el.name1}}</td>
+									<td class="text-right">
+										<!-- {{ el.total_balance }} -->
+										{{ "%.2f"|format(el.total_amount or 0) }}
+									</td>
+								</tr>
+								{% endfor %} {% endif %}
 
 								<tr class="fw bold table-warning">
 									<td colspan="2" class="text-center">Total</td>
-									<td class="text-right">{{total_liability}}</td>
+									<td class="text-right">
+										<!-- {{total_liability}} -->
+
+										{{ "%.2f"|format(total_liability or 0) }}
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -147,7 +170,10 @@
 								<tr>
 									<td class="text-center">{{ loop.index }}</td>
 									<td>{{asset.name1}}</td>
-									<td class="text-right">{{asset.total_amount}}</td>
+									<td class="text-right">
+										<!-- {{asset.total_amount}} -->
+										{{ "%.2f"|format(asset.total_amount or 0) }}
+									</td>
 								</tr>
 
 								{% endfor %}
@@ -161,7 +187,11 @@
 									<td class="text-center">{{ sl }}</td>
 									<td>Balance Loss</td>
 									<td class="text-right">
-										{{ profit_loss_appropriation_account.total_balance }}
+										<!-- {{ profit_loss_appropriation_account.total_balance }} -->
+
+										{{
+										"%.2f"|format(profit_loss_appropriation_account.total_balance
+										or 0) }}
 									</td>
 								</tr>
 								{% endif %}
@@ -180,6 +210,19 @@
 										{{ "%.2f"|format(cash_at_bank or 0) }}
 									</td>
 								</tr>
+
+								{% if entry_assets %} {% for ea in entry_assets %}
+
+								<tr>
+									{% set sl = sl + 1 %}
+									<td class="text-center">{{ sl }}</td>
+									<td>{{ea.name1}}</td>
+									<td class="text-right">
+										{{ "%.2f"|format(ea.total_amount or 0) }}
+									</td>
+								</tr>
+
+								{% endfor %} {% endif %}
 
 								<tr class="fw bold table-info">
 									<td colspan="2" class="text-center">Total</td>

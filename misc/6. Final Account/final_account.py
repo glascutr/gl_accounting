@@ -171,15 +171,18 @@ for final_account in final_accounts:
 
 entry_liabilies_list = frappe.db.sql("""
     SELECT
-        accounts_head,
-        SUM(amount) AS total_amount
+        ah.name1,
+        SUM(el.amount) AS total_amount
     FROM
-        `tabEntry Liabilities`
+        `tabEntry Liabilities` el
+    INNER JOIN `tabAccounts Head` ah
+        ON el.accounts_head = ah.name
+    WHERE 
+        el.date BETWEEN %s AND %s
     GROUP BY
-        accounts_head
+        el.accounts_head
     ORDER BY
-        date DESC
-    WHERE tr.date BETWEEN %s AND %s
+        el.date DESC
 """, (from_date, to_date), as_dict=True)
 
 entry_liabilies = []
@@ -189,20 +192,22 @@ for row in entry_liabilies_list:
     entry_liabilies.append(row)
     total_entry_liabilies_amount = total_entry_liabilies_amount + row["total_amount"]
     
-    
 
 
 entry_assets_list = frappe.db.sql("""
     SELECT
-        accounts_head,
-        SUM(amount) AS total_amount
+        ah.name1,
+        SUM(ea.amount) AS total_amount
     FROM
-        `tabEntry Liabilities`
+        `tabEntry Assets` ea
+    INNER JOIN `tabAccounts Head` ah
+        ON ea.accounts_head = ah.name
+    WHERE 
+        ea.date BETWEEN %s AND %s
     GROUP BY
-        accounts_head
+        ea.accounts_head 
     ORDER BY
-        date DESC
-    WHERE tr.date BETWEEN %s AND %s
+        ea.date DESC
 """, (from_date, to_date), as_dict=True)
 
 
