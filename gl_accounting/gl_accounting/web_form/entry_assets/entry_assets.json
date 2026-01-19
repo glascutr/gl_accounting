@@ -1,0 +1,139 @@
+{
+ "allow_comments": 0,
+ "allow_delete": 1,
+ "allow_edit": 1,
+ "allow_incomplete": 1,
+ "allow_multiple": 1,
+ "allow_print": 0,
+ "anonymous": 0,
+ "apply_document_permissions": 1,
+ "button_label": "Save",
+ "condition_json": "[]",
+ "creation": "2026-01-19 11:13:27.067408",
+ "doc_type": "Entry Assets",
+ "docstatus": 0,
+ "doctype": "Web Form",
+ "hide_footer": 0,
+ "hide_navbar": 1,
+ "idx": 0,
+ "is_standard": 1,
+ "list_columns": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "particulars",
+   "fieldtype": "Link",
+   "label": "Particulars"
+  },
+  {
+   "fieldname": "accounts_head",
+   "fieldtype": "Link",
+   "label": "Accounts Head"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  }
+ ],
+ "list_title": "Entry Assets",
+ "login_required": 1,
+ "max_attachment_size": 0,
+ "modified": "2026-01-19 11:13:58.020917",
+ "modified_by": "Administrator",
+ "module": "GL Accounting",
+ "name": "entry-assets",
+ "owner": "Administrator",
+ "published": 1,
+ "route": "entry-assets",
+ "show_attachments": 0,
+ "show_list": 1,
+ "show_sidebar": 1,
+ "title": "Entry Assets",
+ "web_form_fields": [
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "section_break_wgkp",
+   "fieldtype": "Section Break",
+   "hidden": 0,
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "hidden": 0,
+   "label": "Date",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "particulars",
+   "fieldtype": "Link",
+   "hidden": 0,
+   "label": "Particulars",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "Particulars",
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "column_break_dekp",
+   "fieldtype": "Column Break",
+   "hidden": 0,
+   "label": "",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "fieldname": "accounts_head",
+   "fieldtype": "Link",
+   "hidden": 0,
+   "label": "Accounts Head",
+   "max_length": 0,
+   "max_value": 0,
+   "options": "Accounts Head",
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  },
+  {
+   "allow_read_on_all_link_options": 0,
+   "default": "0.0",
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "hidden": 0,
+   "label": "Amount",
+   "max_length": 0,
+   "max_value": 0,
+   "precision": "",
+   "read_only": 0,
+   "reqd": 0,
+   "show_in_filter": 0
+  }
+ ],
+ "website_sidebar": "GL Accounting Sidebar"
+}
