@@ -42,7 +42,7 @@
  "list_title": "Entry Assets",
  "login_required": 1,
  "max_attachment_size": 0,
- "modified": "2026-01-19 11:13:58.020917",
+ "modified": "2026-01-19 11:16:50.852120",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "entry-assets",
@@ -52,6 +52,9 @@
  "show_attachments": 0,
  "show_list": 1,
  "show_sidebar": 1,
+ "success_message": "Entry Assets Added Successfully. Thank you!",
+ "success_title": "Entry Assets Added",
+ "success_url": "/final-account",
  "title": "Entry Assets",
  "web_form_fields": [
   {
