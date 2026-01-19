@@ -1,0 +1,84 @@
+@media print {
+
+  /* Hide elements you don't want in print */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Body font size */
+  body {
+    font-size: 18px;
+  }
+
+  /* Container full width for print */
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Bootstrap row as block to prevent flex issues */
+  .row {
+    display: block !important;
+  }
+
+  /* Columns full width, allow breaking inside page if needed */
+  .col-md-6 {
+    width: 100% !important;
+    max-width: 100% !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  /* Cards auto height, allow break if too big */
+  .card {
+    height: auto !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    margin-top: 8mm; /* space between cards for print */
+  }
+
+  /* Card body padding adjustment */
+  .card-body {
+    overflow: visible !important;
+    padding: 8px !important;
+  }
+
+  /* Table full width, collapse borders */
+  table {
+    width: 100% !important;
+    border-collapse: collapse;
+    margin-top: 12mm; /* space from top of page */
+  }
+
+  /* Table head repeat on every page */
+  thead {
+    display: table-header-group;
+  }
+
+  /* Table row, cell - never break inside */
+  tr,
+  td,
+  th {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Table colors for print */
+  .table-info,
+  .table-warning {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Optional: force page break for big sections */
+  .page-break {
+    page-break-before: always;
+  }
+
+  /* Optional: extra top spacing for new table on new page */
+  .print-space-top {
+    margin-top: 15mm;
+  }
+}

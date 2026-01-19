@@ -249,20 +249,3 @@ if month and year:
     context.total_credit = total_credit
     
     
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
