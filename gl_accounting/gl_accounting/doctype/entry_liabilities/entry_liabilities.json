@@ -34,6 +34,7 @@
    "options": "Accounts Head"
   },
   {
+   "default": "0.0",
    "fieldname": "amount",
    "fieldtype": "Currency",
    "label": "Amount"
@@ -42,7 +43,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-19 09:35:51.525992",
+ "modified": "2026-01-19 10:05:06.618658",
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "Entry Liabilities",
