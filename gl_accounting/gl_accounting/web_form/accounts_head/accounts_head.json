@@ -21,11 +21,7 @@
  "list_title": "",
  "login_required": 1,
  "max_attachment_size": 0,
-<<<<<<< HEAD
- "modified": "2026-01-13 11:29:10.160362",
-=======
  "modified": "2026-01-13 11:17:14.260239",
->>>>>>> refs/remotes/upstream/main
  "modified_by": "Administrator",
  "module": "GL Accounting",
  "name": "accounts-head",
@@ -35,10 +31,6 @@
  "show_attachments": 0,
  "show_list": 1,
  "show_sidebar": 1,
-<<<<<<< HEAD
- "success_message": "Congratulations!\nAccounts Head Added Successfully.",
-=======
->>>>>>> refs/remotes/upstream/main
  "success_title": "Accounts Head Added Successfully.",
  "success_url": "/accounts-head/list",
  "title": "Accounts Head",

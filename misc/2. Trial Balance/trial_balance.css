@@ -1,16 +1,13 @@
 @media print {
 
-  /* Hide elements you don't want in print */
   .no-print {
     display: none !important;
   }
 
-  /* Body font size */
   body {
-    font-size: 20px;
+    font-size: 16px;
   }
 
-  /* Container full width for print */
   .container {
     width: 100% !important;
     max-width: 100% !important;
@@ -18,67 +15,61 @@
     padding: 0 !important;
   }
 
-  /* Bootstrap row as block to prevent flex issues */
+  /* ✅ Keep two columns */
   .row {
-    display: block !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
   }
 
-  /* Columns full width, allow breaking inside page if needed */
   .col-md-6 {
-    width: 100% !important;
-    max-width: 100% !important;
-    page-break-inside: auto !important;
+    width: 50% !important;
+    max-width: 50% !important;
+
+    /* ❌ REMOVE avoid here */
     break-inside: auto !important;
+    page-break-inside: auto !important;
   }
 
-  /* Cards auto height, allow break if too big */
   .card {
     height: auto !important;
-    page-break-inside: auto !important;
+    margin: 0 4mm;
+
+    /* ❌ allow browser to decide */
     break-inside: auto !important;
-    margin-top: 8mm; /* space between cards for print */
+    page-break-inside: auto !important;
   }
 
-  /* Card body padding adjustment */
   .card-body {
-    overflow: visible !important;
     padding: 8px !important;
+    overflow: visible !important;
   }
 
-  /* Table full width, collapse borders */
   table {
     width: 100% !important;
     border-collapse: collapse;
-    margin-top: 12mm; /* space from top of page */
   }
 
-  /* Table head repeat on every page */
   thead {
     display: table-header-group;
   }
 
-  /* Table row, cell - never break inside */
-  tr,
-  td,
-  th {
-    page-break-inside: avoid !important;
+  /* ✅ ONLY protect rows */
+  tr {
     break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
-  /* Table colors for print */
+  /* ❌ REMOVE from td, th */
+  td, th {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+
   .table-info,
-  .table-warning {
+  .table-warning,
+  .table-dark {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
-  }
-
-  /* Optional: force page break for big sections */
-  .page-break {
-    page-break-before: always;
-  }
-
-  /* Optional: extra top spacing for new table on new page */
-  .print-space-top {
-    margin-top: 15mm;
   }
 }
