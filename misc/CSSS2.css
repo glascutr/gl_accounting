@@ -1,0 +1,180 @@
+/* =========================
+   BASE
+========================= */
+.print-format {
+    font-size: 11px;
+    background: white;
+    color: #192734;
+}
+
+/* =========================
+   HEADING
+========================= */
+.print-heading {
+    border-bottom: 1px solid #f4f5f6;
+    padding: 4px 0; /* top & bottom balanced */
+    margin-bottom: 6px;
+}
+
+.print-heading h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.print-heading h2 div {
+    font-weight: 600;
+}
+
+.print-heading small {
+    font-size: 11px !important;
+    font-weight: normal;
+    line-height: 1.4;
+    color: #4c5a67;
+}
+
+/* =========================
+   LETTER HEAD
+========================= */
+.print-format .letter-head {
+    margin-bottom: 10px;
+}
+
+/* =========================
+   LABEL & VALUE
+========================= */
+.print-format label {
+    font-weight: normal;
+    font-size: 11px;
+    color: #4C5A67;
+    margin: 0; /* bottom margin removed */
+}
+
+.print-format .data-field {
+    margin: 0; /* top & bottom margin removed */
+}
+
+.print-format .value {
+    color: #192734;
+    font-size: 11px;
+    line-height: normal; /* important */
+    display: block;      /* fill parent td */
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================
+   ROW / SECTION
+========================= */
+.print-format .section-break:not(:last-child) {
+    margin-bottom: 2px; /* compact */
+}
+
+.print-format .row:not(.section-break) {
+    line-height: 1.2;
+    margin: 2px 0 !important; /* top & bottom compact */
+}
+
+/* =========================
+   TABLE BASE
+========================= */
+.print-format table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* =========================
+   TABLE BORDER
+========================= */
+.print-format .table-bordered {
+    border: 1px solid #f4f5f6;
+}
+
+.print-format .table-bordered td,
+.print-format .table-bordered th {
+    border: 1px solid #f4f5f6;
+}
+
+/* =========================
+   TABLE HEADER
+========================= */
+.print-format th {
+    color: #74808b;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 1.2;
+    padding: 2px 4px !important;
+    vertical-align: middle;
+}
+
+/* =========================
+   TABLE CELL
+========================= */
+.print-format td {
+    font-size: 11px;
+    line-height: normal;       /* important */
+    vertical-align: top;       /* remove bottom gap */
+    padding: 2px 4px !important;
+}
+
+/* value inside table */
+.print-format table td .value {
+    display: block;           /* fill td, no inline gap */
+    font-size: 11px;
+    line-height: normal;      /* remove extra space */
+    margin: 0;
+    padding: 0;
+}
+
+/* serial / sr column */
+.print-format table tr td.table-sr {
+    font-size: 11px;
+    line-height: normal;
+    width: 35px;
+    text-align: center;
+    padding: 2px 4px !important;
+}
+
+/* =========================
+   COMPACT ITEM
+========================= */
+.print-format .primary.compact-item {
+    font-weight: normal;
+}
+
+/* =========================
+   PRINT MEDIA COMPACT
+========================= */
+@media print {
+    .print-format {
+        font-size: 10px;
+    }
+
+    .print-format td,
+    .print-format th {
+        font-size: 10px;
+        line-height: normal;  /* important */
+        padding: 1px 3px !important;
+    }
+
+    .print-heading h2 {
+        font-size: 16px;
+    }
+
+    .print-heading small {
+        font-size: 10px !important;
+        line-height: 1.3;
+    }
+
+    .print-format .value {
+        font-size: 10px;
+        line-height: normal; /* remove bottom gap */
+        margin: 0;
+        padding: 0;
+    }
+
+    .print-format table td {
+        white-space: nowrap;
+        vertical-align: top; /* no extra bottom space */
+    }
+}

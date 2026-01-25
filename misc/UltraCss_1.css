@@ -1,0 +1,135 @@
+.print-format {
+    font-size: 10px;                /* base font আরেকটু ছোট করা */
+    background: white;
+    line-height: 1.1;               /* global line-height কমানো */
+}
+
+.print-heading {
+    border-bottom: 1px solid #f4f5f6;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+.print-heading h2 {
+    font-size: 20px;                /* heading-ও একটু ছোট */
+    margin: 0;
+}
+
+.print-heading h2 div {
+    font-weight: 600;
+}
+
+.print-heading small {
+    font-size: 11px !important;
+    font-weight: normal;
+    line-height: 1.3;
+    color: #4c5a67;
+}
+
+.print-format .letter-head {
+    margin-bottom: 12px;
+}
+
+.print-format label {
+    font-weight: normal;
+    font-size: 10px;
+    color: #4C5A67;
+    margin-bottom: 0;
+}
+
+.print-format .data-field {
+    margin: 0;
+}
+
+.print-format .value {
+    color: #192734;
+    line-height: 1.05;
+}
+
+.print-format .section-break:not(:last-child) {
+    margin-bottom: 0;
+}
+
+.print-format .row:not(.section-break) {
+    line-height: 1.3;
+    margin-top: 8px !important;
+}
+
+.print-format .important .value {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.print-format th {
+    color: #74808b;
+    font-weight: normal;
+    border-bottom: 1px solid #f4f5f6 !important;
+    background: #f9f9f9;            /* হালকা bg দিলে header আলাদা দেখায় */
+}
+
+/* টেবিলের border */
+.print-format .table-bordered {
+    border: 1px solid #e0e0e0;
+    border-collapse: collapse !important;
+}
+
+.print-format .table-bordered td,
+.print-format .table-bordered th {
+    border: 1px solid #e0e0e0;
+}
+
+/* সবচেয়ে গুরুত্বপূর্ণ অংশ — টেবিল row + cell compact করা */
+.print-format table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.print-format table tr {
+    height: 18px !important;        /* 20px এর বদলে 18px — আরও টাইট */
+}
+
+.print-format table tr td,
+.print-format table tr th {
+    height: 18px !important;
+    padding: 0 4px !important;      /* সামান্য horizontal padding রাখা ভালো */
+    margin: 0;
+    line-height: 1.0 !important;    /* 1.0 বা 0.95 পর্যন্ত যেতে পারে */
+    font-size: 9.5px !important;    /* font size আরও ছোট */
+    vertical-align: middle;         /* টেক্সট মাঝ বরাবর */
+}
+
+/* span-এর জন্য (তোমার HTML-এ অনেক span আছে) */
+.print-format table td span,
+.print-format table th span {
+    line-height: 1.0 !important;
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+/* serial number cell-এর জন্য */
+.print-format table tr td.table-sr {
+    line-height: 1;
+    height: 18px !important;
+    font-size: 9.5px;
+    text-align: center;
+    padding: 0 !important;
+}
+
+/* value class যদি table-এর ভিতরে থাকে */
+.print-format table td .value {
+    font-size: 9.5px;
+    line-height: 1.0;
+}
+
+/* optional — যদি আরও টাইট চাও */
+.print-format table tr td:first-child,
+.print-format table tr th:first-child {
+    padding-left: 2px !important;
+}
+
+.print-format table tr td:last-child,
+.print-format table tr th:last-child {
+    padding-right: 2px !important;
+}

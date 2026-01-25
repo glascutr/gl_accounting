@@ -1,0 +1,98 @@
+<div class="d-flex justify-content-end mb-3 no-print">
+	<button class="btn btn-outline-secondary btn-sm" onclick="printTable()">🖨 Print</button>
+</div>
+
+<div id="print-area" class="mt-3">
+	<!-- Company Header -->
+	<div class="text-center mb-4">
+		<h4 class="mb-1 font-weight-bold">BASTUANA LTD.</h4>
+		<small class="text-muted d-block">
+			MG SAM CENTER (17TH FLOOR), 12, MOHAKHALI C/A, DHAKA-1212
+		</small>
+	</div>
+
+	<!-- Report Title -->
+	<div class="text-center mb-4">
+		<h5 class="d-inline-block px-4 py-1 border-bottom font-weight-bold text-dark">
+			Monthly Income / Revenue(Service Charge)
+		</h5>
+	</div>
+
+	<!-- 🔍 Filter Card (No Print) -->
+	<div class="container no-print mb-4">
+		<div class="card shadow-sm">
+			<div class="card-body">
+				<form id="filterForm" method="get">
+					<div class="form-row align-items-end justify-content-center">
+						<div class="col-md-3 mb-2">
+							<label class="small font-weight-bold">From Date</label>
+							<input
+								type="date"
+								class="form-control form-control-sm"
+								name="from_date"
+								value="{{ from_date or '' }}"
+							/>
+						</div>
+
+						<div class="col-md-3 mb-2">
+							<label class="small font-weight-bold">To Date</label>
+							<input
+								type="date"
+								class="form-control form-control-sm"
+								name="to_date"
+								value="{{ to_date or '' }}"
+							/>
+						</div>
+
+						<div class="col-md-2 mb-2 text-center">
+							<button type="submit" class="btn btn-primary btn-sm btn-block">
+								Apply
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- 📅 Date Range Display -->
+	{% if from_date and to_date %}
+	<div>
+		<div class="text-center mb-4">
+			<div class="d-inline-block border rounded px-4 py-2">
+				<div class="font-weight-bold text-muted">Period</div>
+				<div style="font-size: 16px">{{ from_date }} to {{ to_date }}</div>
+			</div>
+		</div>
+
+		<!-- ✅ Table -->
+		<table class="table table-bordered table-sm">
+			<thead class="thead-dark">
+				<tr>
+					<th>SL.</th>
+					<th>Date</th>
+					<th>Particular</th>
+					<th class="text-right">Amount</th>
+				</tr>
+			</thead>
+			<tbody id="tableBody">
+				{% for transaction in transaction_list %}
+				<tr>
+					<td class="text-center">{{ loop.index }}</td>
+					<td class="text-nowrap">{{ transaction.date.strftime("%d-%m-%Y") }}</td>
+					<td>{{ transaction.particulars }}</td>
+					<td class="text-right">{{ "{:,.2f}".format(transaction.amount or 0) }}</td>
+				</tr>
+				{% endfor %}
+
+                <tr class="fw bold table-info">
+					
+					<td colspan="3" class="text-center">Total</td>
+					<td class="text-right">{{ "{:,.2f}".format(total_revenue or 0) }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	{% endif %}
+</div>

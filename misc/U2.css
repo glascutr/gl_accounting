@@ -1,0 +1,140 @@
+.print-format {
+    font-size: 9.8px;
+    background: white;
+    line-height: 1.05;
+    color: #192734;
+}
+
+.print-heading {
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+.print-heading h2 {
+    font-size: 20px;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.print-heading h2 div {
+    font-weight: 600;
+}
+
+.print-heading small {
+    font-size: 11px !important;
+    line-height: 1.3;
+    color: #4c5a67;
+}
+
+.print-format .letter-head {
+    margin-bottom: 12px;
+}
+
+.print-format label {
+    font-weight: normal;
+    font-size: 9.8px;
+    color: #4C5A67;
+    margin: 0;
+}
+
+.print-format .data-field,
+.print-format .value {
+    margin: 0;
+    line-height: 1.05;
+}
+
+.print-format .important .value {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.print-format th {
+    color: #5a6775;
+    font-weight: 500;
+    background: #f8f9fa;
+    border-bottom: 1px solid #d8dcdf !important;
+}
+
+/* ────────────────────────────────────────────────
+   Most important part — tight table + no extra bottom space
+───────────────────────────────────────────────── */
+
+.print-format table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    line-height: 1.0;
+}
+
+.print-format table tr {
+    height: auto !important;
+    max-height: 20px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.print-format table tr td,
+.print-format table tr th {
+    height: auto !important;
+    max-height: 20px !important;
+    padding: 0 4px !important;       /* minimal horizontal padding only */
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+    line-height: 1.0 !important;
+    font-size: 9.5px !important;
+    vertical-align: middle;
+    border: 1px solid #e0e0e0;
+}
+
+/* Very important for your HTML structure (almost everything is inside <span>) */
+.print-format table td span,
+.print-format table th span {
+    display: block;
+    line-height: 1.0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Serial number column */
+.print-format table tr td.table-sr {
+    padding: 0 !important;
+    text-align: center;
+    font-size: 9.5px;
+    line-height: 1.0;
+    width: 35px;   /* adjust if needed */
+}
+
+/* Extra tight control */
+.print-format table td .value {
+    font-size: 9.5px;
+    line-height: 1.0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Optional — make first/last cells even tighter */
+.print-format table tr td:first-child,
+.print-format table tr th:first-child {
+    padding-left: 2px !important;
+}
+
+.print-format table tr td:last-child,
+.print-format table tr th:last-child {
+    padding-right: 2px !important;
+}
+
+/* Header row can be allowed slightly taller */
+.print-format table thead tr {
+    max-height: 22px !important;
+}
+
+.print-format table thead th {
+    padding: 1px 1px !important;
+    line-height: 1.1;
+    font-size: 9.8px;
+}
