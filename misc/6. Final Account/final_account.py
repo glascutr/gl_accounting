@@ -169,11 +169,66 @@ for final_account in final_accounts:
         equity_list.append(final_account)
 
 
+entry_liabilies_list = frappe.db.sql("""
+    SELECT
+        ah.name1,
+        SUM(el.amount) AS total_amount
+    FROM
+        `tabEntry Liabilities` el
+    INNER JOIN `tabAccounts Head` ah
+        ON el.accounts_head = ah.name
+    WHERE 
+        el.date BETWEEN %s AND %s
+    GROUP BY
+        el.accounts_head
+    ORDER BY
+        el.date DESC
+""", (from_date, to_date), as_dict=True)
+
+entry_liabilies = []
+total_entry_liabilies_amount = 0
+
+for row in entry_liabilies_list:
+    entry_liabilies.append(row)
+    total_entry_liabilies_amount = total_entry_liabilies_amount + row["total_amount"]
+    
+
+
+entry_assets_list = frappe.db.sql("""
+    SELECT
+        ah.name1,
+        SUM(ea.amount) AS total_amount
+    FROM
+        `tabEntry Assets` ea
+    INNER JOIN `tabAccounts Head` ah
+        ON ea.accounts_head = ah.name
+    WHERE 
+        ea.date BETWEEN %s AND %s
+    GROUP BY
+        ea.accounts_head 
+    ORDER BY
+        ea.date DESC
+""", (from_date, to_date), as_dict=True)
+
+
+entry_assets = []
+total_entry_assets_amount = 0
+
+for row in entry_assets_list:
+    entry_assets.append(row)
+    total_entry_assets_amount = total_entry_assets_amount + row["total_amount"]
+    
+    
+
+
 context.liability_list = liability_list
 context.asset_list = asset_list
+context.entry_liabilies = entry_liabilies
+context.entry_assets = entry_assets
+
 context.equity_list = equity_list   
 # context.total_liability = total_liability
-context.total_liability = total_liability + profit_loss_appropriation_account.total_balance if profit_loss_appropriation_account.is_profit else total_liability
-context.total_asset = (total_asset + profit_loss_appropriation_account.total_balance if not profit_loss_appropriation_account.is_profit else total_asset)+ (cash_in_hand+cash_at_bank)
+context.total_liability = (total_liability + profit_loss_appropriation_account.total_balance if profit_loss_appropriation_account.is_profit else total_liability)+total_entry_liabilies_amount
+context.total_asset = ((total_asset + profit_loss_appropriation_account.total_balance if not profit_loss_appropriation_account.is_profit else total_asset)+ (cash_in_hand+cash_at_bank))+total_entry_assets_amount
 context.total_equity = total_equity
 

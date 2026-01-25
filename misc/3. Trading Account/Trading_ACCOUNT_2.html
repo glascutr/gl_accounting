@@ -1,0 +1,236 @@
+<!-- Print Button -->
+<div class="d-flex justify-content-end mb-3">
+	<button class="btn btn-secondary" onclick="printTable()">🖨 Print</button>
+</div>
+
+<!-- ================= PRINT AREA START ================= -->
+<div id="print-area">
+	<!-- Company Header -->
+	<div class="text-center mb-4">
+		<h4 class="fw-bold mb-1">GLASCUTR LIMITED</h4>
+		<div class="small">
+			Regent Red Wood, House 3/A, Unit B4, Road 2, Gulshan-1, Dhaka-1212, Bangladesh
+		</div>
+	</div>
+
+	<!-- ================= TRADING ACCOUNT ================= -->
+	<div class="text-center my-4">
+		<h5 class="d-inline-block border-bottom border-3 pb-1 fw-bold">Trading Account</h5>
+	</div>
+
+	{% if fy_doc %}
+	<div class="text-center mb-2 fw-bold">{{ fy_doc.year }}</div>
+
+	<div class="text-center mb-4">
+		{% if from_date %} ({{ from_date.strftime("%d-%m-%Y") }}) {% endif %} - {% if to_date %}
+		({{ to_date.strftime("%d-%m-%Y") }}) {% endif %}
+	</div>
+	{% endif %}
+
+	<div class="container mb-5">
+		<div class="row g-4">
+			<!-- Debit -->
+			<div class="col-md-6">
+				<div class="card h-100 shadow border-0">
+					<div class="card-header bg-warning text-white fw-semibold">💳 Debit</div>
+					<div class="card-body p-3">
+						<table class="table table-sm table-bordered table-striped mb-0">
+							<thead class="table-dark text-center">
+								<tr>
+									<th style="width: 50px">SL</th>
+									<th>Particulars</th>
+									<th class="text-end">Amount (Tk)</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for ah in trading_debit_accounts %}
+								<tr>
+									<td class="text-center">{{ loop.index }}</td>
+									<td>{{ ah.name1 }}</td>
+									<td class="text-end">
+										{{ "{:,.2f}".format(ah.total_amount) }}
+									</td>
+								</tr>
+								{% endfor %} {% if profit >= 0 %}
+								<tr>
+									<td colspan="2" class="text-center fw-semibold">
+										Gross Profit
+									</td>
+									<td class="text-end">{{ "{:,.2f}".format(gross_profit) }}</td>
+								</tr>
+								{% endif %}
+
+								<tr class="fw-bold table-warning">
+									<td colspan="2" class="text-center">Total</td>
+									<td class="text-end">{{ "{:,.2f}".format(total_debit) }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<!-- Credit -->
+			<div class="col-md-6">
+				<div class="card h-100 shadow border-0">
+					<div class="card-header bg-info text-white fw-semibold">💰 Credit</div>
+					<div class="card-body p-3">
+						<table class="table table-sm table-bordered table-striped mb-0">
+							<thead class="table-dark text-center">
+								<tr>
+									<th style="width: 50px">SL</th>
+									<th>Particulars</th>
+									<th class="text-end">Amount (Tk)</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for ah in trading_credit_accounts %}
+								<tr>
+									<td class="text-center">{{ loop.index }}</td>
+									<td>{{ ah.name1 }}</td>
+									<td class="text-end">
+										{{ "{:,.2f}".format(ah.total_amount) }}
+									</td>
+								</tr>
+								{% endfor %} {% if profit < 0 %}
+								<tr>
+									<td colspan="2" class="text-center fw-semibold">Gross Loss</td>
+									<td class="text-end">{{ "{:,.2f}".format(gross_profit) }}</td>
+								</tr>
+								{% endif %}
+
+								<tr class="fw-bold table-info">
+									<td colspan="2" class="text-center">Total</td>
+									<td class="text-end">{{ "{:,.2f}".format(total_credit) }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="only-print">
+		<!-- ================= PROFIT & LOSS ================= -->
+		<div class="text-center my-4">
+			<h5 class="d-inline-block border-bottom border-3 pb-1 fw-bold">
+				Profit &amp; Loss Account
+			</h5>
+		</div>
+
+		<div class="container mb-4">
+			<div class="row g-4">
+				<div class="col-md-6">
+					<div class="card shadow border-0 h-100">
+						<div class="card-header bg-warning bg-gradient text-white">
+							<h5 class="mb-0 fw-semibold">💳 Debit</h5>
+						</div>
+
+						<div class="card-body p-3">
+							<table class="table table-sm table-striped table-bordered mb-0">
+								<thead class="table-dark text-center">
+									<tr>
+										<th style="width: 50px">SL</th>
+										<th>Particulars</th>
+										<th class="text-right">Amount (Tk)</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									{% for ah in profit_loss_debit_accounts %}
+									<tr>
+										<td class="text-center">{{ loop.index }}</td>
+										<td>{{ ah.name1 }}</td>
+										<td class="text-right">
+											{{ "{:,.2f}".format(ah.total_amount or 0) }}
+										</td>
+									</tr>
+									{% endfor %} {% if gross_loss > 0 %}
+									<tr>
+										<td colspan="2" class="text-center">Gross Loss</td>
+										<td class="text-right">
+											{{ "{:,.2f}".format(gross_loss) }}
+										</td>
+									</tr>
+									{% endif %} {% if net_profit > 0 %}
+									<tr>
+										<td colspan="2" class="text-center">Net Profit</td>
+										<td class="text-right">
+											{{ "{:,.2f}".format(net_profit) }}
+										</td>
+									</tr>
+									{% endif %}
+
+									<tr class="fw-bold table-warning">
+										<td colspan="2" class="text-center">Total</td>
+										<td class="text-right">
+											{{ "{:,.2f}".format(net_total_debit) }}
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<!-- ================= CREDIT ================= -->
+				<div class="col-md-6">
+					<div class="card shadow border-0 h-100">
+						<div class="card-header bg-info bg-gradient text-white">
+							<h5 class="mb-0 fw-semibold">💰 Credit</h5>
+						</div>
+
+						<div class="card-body p-3">
+							<table class="table table-sm table-striped table-bordered mb-0">
+								<thead class="table-dark text-center">
+									<tr>
+										<th style="width: 50px">SL</th>
+										<th>Particulars</th>
+										<th class="text-right">Amount (Tk)</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									{% set sl = 1 %} {% if gross_profit > 0 %}
+									<tr>
+										<td class="text-center">{{ sl }}</td>
+										<td>Gross Profit</td>
+										<td class="text-right">
+											{{ "{:,.2f}".format(gross_profit) }}
+										</td>
+									</tr>
+									{% set sl = sl + 1 %} {% endif %} {% for ah in
+									profit_loss_credit_accounts %}
+									<tr>
+										<td class="text-center">{{ sl }}</td>
+										<td>{{ ah.name1 }}</td>
+										<td class="text-right">
+											{{ "{:,.2f}".format(ah.total_amount or 0) }}
+										</td>
+									</tr>
+									{% set sl = sl + 1 %} {% endfor %} {% if net_loss > 0 %}
+									<tr>
+										<td colspan="2" class="text-center">Net Loss</td>
+										<td class="text-right">
+											{{ "{:,.2f}".format(net_loss) }}
+										</td>
+									</tr>
+									{% endif %}
+
+									<tr class="fw-bold table-info">
+										<td colspan="2" class="text-center">Total</td>
+										<td class="text-right">
+											{{ "{:,.2f}".format(net_total_credit) }}
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ================= PRINT AREA END ================= -->

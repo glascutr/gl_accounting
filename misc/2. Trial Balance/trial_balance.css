@@ -1,0 +1,75 @@
+@media print {
+
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* ✅ Keep two columns */
+  .row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+  }
+
+  .col-md-6 {
+    width: 50% !important;
+    max-width: 50% !important;
+
+    /* ❌ REMOVE avoid here */
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+
+  .card {
+    height: auto !important;
+    margin: 0 4mm;
+
+    /* ❌ allow browser to decide */
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+
+  .card-body {
+    padding: 8px !important;
+    overflow: visible !important;
+  }
+
+  table {
+    width: 100% !important;
+    border-collapse: collapse;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  /* ✅ ONLY protect rows */
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* ❌ REMOVE from td, th */
+  td, th {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+
+  .table-info,
+  .table-warning,
+  .table-dark {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
